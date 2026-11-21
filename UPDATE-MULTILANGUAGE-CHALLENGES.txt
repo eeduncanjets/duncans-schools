@@ -1,0 +1,11 @@
+DUNCAN'S TECH SCHOOLS - MULTI-LANGUAGE UPDATE
+
+Highlights:
+- Challenge library has language filters and search.
+- The library now contains 1,210 challenges, including 40 categorized guided challenges for each of the 29 course tracks, plus the existing starter exercises.
+- JavaScript, Python and SQL retain browser-based test execution where supported.
+- Challenges for compiled languages, frameworks, infrastructure and command-line tools use guided self-review with rubrics/reference guidance; they are not falsely presented as browser-executed tests.
+- Cheat sheets contain 208 snippets across 18 technology areas.
+
+Deploy: publish the contents of this folder to Netlify.
+Security note: never paste AWS access keys, passwords, API tokens or private credentials into challenge submissions.

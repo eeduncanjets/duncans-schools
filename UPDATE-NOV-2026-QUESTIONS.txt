@@ -1,0 +1,100 @@
+Question and answer fix (Nov 2026)
+- Removed the shared filler question that appeared in ~900 lessons (same text, same options, correct answer always first).
+- js/lessons-extra.js now has 40 distinct topic questions with their own correct answers and distractors.
+- Setup, debugging, testing and dependency lessons use each language's real tools (e.g. pytest/pip/pdb for Python, JUnit/Maven for Java, gdb/Make for C).
+- Correct-answer position is varied deterministically in every lesson, including the hand-written ones.
+- Lesson bodies and practice samples now mention what each course works on.
+Run "node build.js" after any edit to regenerate the lesson pages.
+
+Round 2: 70 hand-written lessons added (5 each) for dsa, leet, os, net, sql, pg, data, ml, thm, htb, git, linux, docker and sysdesign.
+SQL lessons run live against the sample database. Remaining numbered lessons in those courses are still the general-practice set.
+
+Round 3: quiz feedback now names the correct answer and remembers missed lessons; About page placeholder removed; release check fails on repeated questions or clustered answers.
+
+Round 4: 24 more hand-written lessons (6 each) for python (runnable), linux, git and docker.
+
+Round 5: 18 runnable lessons (6 each) added for html, css and js.
+
+Round 6: 18 lessons (6 each) added for react, node and ts.
+
+Round 7: 18 lessons (6 each) added for java, c and cpp.
+
+Round 8: 18 lessons added for cs50 (6), dsa (4), os (4) and leet (4).
+
+Round 9: 18 lessons added for data (5), ml (5), thm (4) and htb (4).
+
+Round 10: 18 lessons added for html (4), css (4), js (4), python (3) and sql (3).
+
+Round 11: 18 lessons added for net, pg, sysdesign, git, linux and docker (3 each).
+
+Round 12: 18 lessons added for java, c, cpp, react, node and ts (3 each).
+
+Round 13: 18 lessons added for cs50, dsa, os, data, ml and thm (3 each).
+
+Round 14: 18 lessons added for leet, htb, html, css, js and python (3 each).
+
+Round 15: 24 lessons added for sql, pg, sysdesign, net, git, linux, docker and ml (3 each).
+
+Round 16: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 17: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 18: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 19: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 20: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 21: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 22: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 23: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 24: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 25: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 26: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 27: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 28: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 29: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 30: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 31: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 32: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 33: 24 lessons added for ml, htb, git, linux, docker, sysdesign, net and pg (3 each).
+
+Round 34: 24 lessons added for java, c, cpp, react, node, ts, cs50 and dsa (3 each).
+
+Round 35: 24 lessons added for html, css, js, python, leet, os, data and thm (3 each).
+
+Round 36: 24 lessons added where filler was highest: sql (12, all verified to run), pg (4), sysdesign (4) and htb (4).
+
+Round 37: 24 lessons added for ts, java, c and cpp (6 each); 118 filler lessons remain.
+
+Round 38: 24 lessons added for cs50, sql (6 more, verified to run), net and leet (6 each); 94 filler lessons remain.
+
+Round 39: 24 lessons added for os, pg, thm and sysdesign (6 each).
+
+Round 40: 24 lessons added for node, data, ml and htb (6 each).
+
+Round 41: 25 lessons added for docker (5), sql (4, verified), react, ts, java and cs50 (4 each).
+
+Round 42 (final content pass): last 21 filler lessons written; 8 duplicate-topic lessons replaced with new topics. Result: 1,003 lessons, 0 filler, 0 repeated questions anywhere, 0 duplicate titles within a course, correct answers spread evenly across positions, all 40 runnable SQL lessons verified in SQLite.
+
+Round 43: Added a one-minute video tour (media/duncans-tech-schools-overview.mp4, captions, no audio) and a new "Start here" page (start.html, css/start.css, js/start.js) with the video, a goal picker, a site map and a listen-to-the-guide button. "Start here" is now first in the main menu and in the footer.
+
+Round 44: Video now has Duncan's own voiceover (normalised audio, 1:53). Scenes were timed to the pauses in the recording by estimate; adjust if any scene is off.
+
+Round 45: Video overview removed (media folder and Start here video section deleted). Added Command Lab (terminal.html, js/terminal.js, js/terminal-data.js: 24 simulated Linux, Git and Docker tasks) and Review mistakes (review.html, js/review.js), plus css/tools.css. Both are linked from the Start here page and the footer.
+
+Round 46: Certificates (certificates.html, verify.html, js/cert.js, js/certificates.js, js/verify.js, css/certs.css): a certificate unlocks when every lesson of a course is complete, with a printable design, signature and a verifiable ID. About page: added the Google AI Professional Certificate (Coursera, 15 November 2026) with an image of the certificate.
+
+Round 47: Certificates are now digitally signed by a Netlify Function (netlify/functions/certificate.js, courses.json). Set CERT_SECRET in Netlify, then deploy with Git or the Netlify CLI. If lessons change, run: node scripts/make-courses-json.js (the release check fails if it is out of date). Without the function, certificates fall back to basic unsigned IDs.

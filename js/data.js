@@ -1,0 +1,70 @@
+const PATHS=[
+ {ico:'</>',c:'#2DE2E6',t:'Web development',d:'Build and publish real websites.',s:['HTML and CSS on MDN','JavaScript on javascript.info','Projects on The Odin Project','React on react.dev']},
+ {ico:'py',c:'#FFB547',t:'Python programming',d:'The friendliest first language.',s:['Basics on LearnPython.org','Practice on Exercism','Deeper tutorials on Real Python','Automate small tasks']},
+ {ico:'CS',c:'#7C5CFF',t:'Computer science core',d:'Understand how computers really work.',s:['Watch CS50','Read Teach Yourself CS','Take MIT OpenCourseWare','Study data structures']},
+ {ico:'O(n)',c:'#FF6B9A',t:'Algorithms and interviews',d:'Think clearly and solve problems fast.',s:['Easy problems on LeetCode','Contests on Codeforces','Timed tests on HackerRank','Review on GeeksforGeeks']},
+ {ico:'SQL',c:'#4ADE80',t:'Databases and SQL',d:'Store, query and shape data.',s:['Lessons on SQLBolt','Practice on SQLZoo','Read the PostgreSQL docs','Design a small schema']},
+ {ico:'ML',c:'#38BDF8',t:'Data science and AI',d:'Turn raw data into answers.',s:['Free courses on Kaggle','Python with pandas','Share notebooks','Join a competition']},
+ {ico:'sec',c:'#F87171',t:'Cybersecurity',d:'Learn to defend systems safely.',s:['Guided rooms on TryHackMe','Labs on Hack The Box','Networking basics','Read about web attacks']},
+ {ico:'git',c:'#C084FC',t:'Tools and careers',d:'Work like a professional.',s:['Learn Git and GitHub','Follow Roadmap.sh','Ask on Stack Overflow','Write on DEV Community']}
+];
+const LIB={
+ 'Learn to code':[['freeCodeCamp','https://www.freecodecamp.org','Free, project-based courses and certificates.'],['The Odin Project','https://www.theodinproject.com','A free full-stack web development path.'],['Codecademy','https://www.codecademy.com','Guided lessons right in the browser.'],['Scrimba','https://scrimba.com','Interactive video courses you can edit as you watch.'],['Programiz','https://www.programiz.com','Tutorials with online compilers.'],['LearnPython.org','https://www.learnpython.org','Short interactive Python lessons.'],['Learn-C.org','https://www.learn-c.org','Interactive C tutorials.'],['LearnJavaScript.org','https://www.learn-js.org','Hands-on JavaScript basics.']],
+ 'Tutorials and references':[['MDN Web Docs','https://developer.mozilla.org','The gold standard for HTML, CSS and JavaScript.'],['W3Schools','https://www.w3schools.com','Quick examples with a try-it editor.'],['GeeksforGeeks','https://www.geeksforgeeks.org','Programming, algorithms and CS theory.'],['TutorialsPoint','https://www.tutorialspoint.com','Broad tutorials from languages to networking.'],['Javatpoint','https://www.javatpoint.com','Beginner tutorials for Java, Python and SQL.'],['JavaScript.info','https://javascript.info','A modern, thorough JavaScript tutorial.'],['Real Python','https://realpython.com','In-depth Python articles and guides.'],['DevDocs','https://devdocs.io','Fast, searchable docs in one place.'],['CSS-Tricks','https://css-tricks.com','Guides on Flexbox, Grid and more.'],['Can I Use','https://caniuse.com','Check browser support for any feature.']],
+ 'Official docs':[['Python','https://docs.python.org/3/tutorial/','The official Python tutorial.'],['React','https://react.dev','Interactive, modern React docs.'],['Node.js','https://nodejs.org/docs/latest/api/','Reference for server-side JavaScript.'],['Express','https://expressjs.com','Docs for the popular Node web framework.'],['Tailwind CSS','https://tailwindcss.com/docs','Utility-first styling reference.'],['PostgreSQL','https://www.postgresql.org/docs/','Docs for a powerful open-source database.'],['MySQL','https://dev.mysql.com/doc/','Reference for the widely used database.']],
+ 'CS fundamentals':[['CS50','https://cs50.harvard.edu/x/','Harvard\'s famous free intro to computer science.'],['MIT OpenCourseWare','https://ocw.mit.edu','Full university lectures and problem sets.'],['Coursera','https://www.coursera.org','University courses, free to audit.'],['edX','https://www.edx.org','Courses from top universities.'],['Teach Yourself CS','https://teachyourselfcs.com','A curated self-study roadmap.']],
+ 'Practice and algorithms':[['LeetCode','https://leetcode.com','Interview-style coding problems.'],['HackerRank','https://www.hackerrank.com','Challenges and skill certificates.'],['Codeforces','https://codeforces.com','Competitive programming contests.'],['CodeChef','https://www.codechef.com','Contests and practice problems.'],['Exercism','https://exercism.org','Free, mentor-reviewed exercises.']],
+ 'Live code editors':[['CodePen','https://codepen.io','Write and share HTML, CSS and JS live.'],['JSFiddle','https://jsfiddle.net','Quick front-end experiments.']],
+ 'Databases and SQL':[['SQLBolt','https://sqlbolt.com','Step-by-step interactive SQL lessons.'],['SQLZoo','https://sqlzoo.net','Practice SQL queries online.']],
+ 'Specialized':[['Kaggle','https://www.kaggle.com','Data science, ML courses and datasets.'],['Hack The Box','https://www.hackthebox.com','Hands-on cybersecurity labs.'],['TryHackMe','https://tryhackme.com','Guided security learning rooms.'],['Roadmap.sh','https://roadmap.sh','Career roadmaps for every tech role.']],
+ 'Community and Q&A':[['Stack Overflow','https://stackoverflow.com','Answers to nearly every error you will meet.'],['GitHub','https://github.com','Read real code and contribute.'],['DEV Community','https://dev.to','Articles and discussion by developers.'],['Hacker News','https://news.ycombinator.com','Tech news and sharp discussion.']],
+ 'Video learning':[['Traversy Media','https://www.youtube.com/@TraversyMedia','Clear web development crash courses.'],['Fireship','https://www.youtube.com/@Fireship','Fast, fun tech explainers.'],['freeCodeCamp (YouTube)','https://www.youtube.com/@freecodecamp','Full-length courses, free.'],['The Net Ninja','https://www.youtube.com/@NetNinja','Step-by-step framework playlists.'],['Programming with Mosh','https://www.youtube.com/@programmingwithmosh','Beginner-friendly language tutorials.'],['Udemy','https://www.udemy.com','Affordable long-form courses.']],
+ 'Tech news and blogs':[['TechCrunch','https://techcrunch.com','Startup and industry news.'],['The Verge','https://www.theverge.com','Technology and culture.'],['Ars Technica','https://arstechnica.com','In-depth tech reporting.'],['Medium','https://medium.com','Developer blogs and essays.'],['Hashnode','https://hashnode.com','A blogging home for developers.']]
+};
+const COLORS=['#2DE2E6','#FFB547','#7C5CFF','#FF6B9A','#4ADE80','#38BDF8','#F87171','#C084FC','#FBBF24','#34D399','#60A5FA'];
+const STEPS=[['Month 1','Learn HTML, CSS and basic JavaScript. Build a personal page.'],['Month 2','Study JavaScript deeply. Make a to-do app and a weather app.'],['Month 3','Learn Git and GitHub. Publish your projects online.'],['Month 4','Pick Python or React. Solve easy problems on LeetCode weekly.'],['Month 5','Learn SQL and build an app with a database behind it.'],['Month 6','Build one bigger project, write about it, and start applying.']];
+const CODE=[['<span class="c">// Your first lesson at Duncan\'s Tech School</span>'],['<span class="k">const</span> student = {'],['  name: <span class="s">"You"</span>,'],['  goal: <span class="s">"Become a developer"</span>,'],['  skills: [<span class="s">"HTML"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span>]'],['};'],[''],['<span class="k">function</span> <span class="f">learn</span>(person) {'],['  <span class="k">return</span> person.skills.<span class="f">map</span>(s =&gt; s + <span class="s">" unlocked"</span>);'],['}'],[''],['<span class="f">console</span>.<span class="f">log</span>(<span class="f">learn</span>(student));']];
+
+/* ---------- Courses, programmes, FAQ ---------- */
+const CAT_COLORS={'Web':'#2DE2E6','Programming':'#FFB547','CS core':'#7C5CFF','Data and AI':'#4ADE80','Security':'#F87171','Tools and cloud':'#C084FC'};
+const COURSES=[
+ {id:'html',t:'HTML fundamentals',cat:'Web',lvl:'Beginner',h:6,ico:'</>',d:'Structure pages with headings, links, lists and forms.'},
+ {id:'css',t:'CSS styling and layout',cat:'Web',lvl:'Beginner',h:8,ico:'{ }',d:'Colors, spacing, the box model and Flexbox.'},
+ {id:'js',t:'JavaScript essentials',cat:'Web',lvl:'Beginner',h:14,ico:'JS',d:'Variables, functions, events and arrays.'},
+ {id:'react',t:'React for beginners',cat:'Web',lvl:'Intermediate',h:16,ico:'Re',d:'Build interfaces from components.',u:'https://react.dev/learn'},
+ {id:'node',t:'Node.js and Express',cat:'Web',lvl:'Intermediate',h:14,ico:'Nd',d:'Write servers and APIs in JavaScript.',u:'https://expressjs.com/en/starter/installing.html'},
+ {id:'ts',t:'TypeScript handbook',cat:'Web',lvl:'Intermediate',h:8,ico:'TS',d:'Add types to JavaScript and catch bugs early.',u:'https://www.typescriptlang.org/docs/handbook/intro.html'},
+ {id:'python',t:'Python programming',cat:'Programming',lvl:'Beginner',h:12,ico:'py',d:'Variables, conditions, loops and functions.'},
+ {id:'java',t:'Java foundations',cat:'Programming',lvl:'Intermediate',h:20,ico:'Jv',d:'Object-oriented programming with Java.',u:'https://dev.java/learn/'},
+ {id:'c',t:'C programming',cat:'Programming',lvl:'Intermediate',h:12,ico:'C',d:'Pointers, memory and how code meets hardware.',u:'https://www.learn-c.org'},
+ {id:'cpp',t:'C++ from scratch',cat:'Programming',lvl:'Intermediate',h:20,ico:'C++',d:'A thorough, modern C++ tutorial.',u:'https://www.learncpp.com'},
+ {id:'cs50',t:'CS50: intro to computer science',cat:'CS core',lvl:'Beginner',h:60,ico:'50',d:'Harvard\'s free course on how computers think.',u:'https://cs50.harvard.edu/x/'},
+ {id:'dsa',t:'Data structures and algorithms',cat:'CS core',lvl:'Intermediate',h:30,ico:'DS',d:'Arrays, trees, graphs, sorting and searching.',u:'https://www.geeksforgeeks.org/data-structures/'},
+ {id:'leet',t:'Problem solving practice',cat:'CS core',lvl:'Intermediate',h:25,ico:'O(n)',d:'Sharpen your thinking with real interview problems.',u:'https://leetcode.com/problemset/'},
+ {id:'os',t:'Operating systems',cat:'CS core',lvl:'Advanced',h:30,ico:'OS',d:'Processes, memory and files, explained in three easy pieces.',u:'https://pages.cs.wisc.edu/~remzi/OSTEP/'},
+ {id:'net',t:'How the internet works',cat:'CS core',lvl:'Beginner',h:5,ico:'IP',d:'DNS, HTTP, TLS and networks in plain language.',u:'https://www.cloudflare.com/learning/'},
+ {id:'sql',t:'SQL fundamentals',cat:'Data and AI',lvl:'Beginner',h:8,ico:'SQL',d:'Query and filter data with interactive lessons.',u:'https://sqlbolt.com'},
+ {id:'pg',t:'PostgreSQL in practice',cat:'Data and AI',lvl:'Intermediate',h:10,ico:'Pg',d:'Tables, joins and indexes in a real database.',u:'https://www.postgresql.org/docs/current/tutorial.html'},
+ {id:'data',t:'Data science with Python',cat:'Data and AI',lvl:'Intermediate',h:20,ico:'DS',d:'Pandas, visualization and real datasets.',u:'https://www.kaggle.com/learn'},
+ {id:'ml',t:'Machine learning crash course',cat:'Data and AI',lvl:'Advanced',h:15,ico:'ML',d:'Models, training and evaluation, from Google.',u:'https://developers.google.com/machine-learning/crash-course'},
+ {id:'thm',t:'Cybersecurity basics',cat:'Security',lvl:'Beginner',h:20,ico:'sec',d:'Guided, safe rooms for first-time learners.',u:'https://tryhackme.com'},
+ {id:'htb',t:'Hands-on security labs',cat:'Security',lvl:'Advanced',h:30,ico:'HTB',d:'Practice defense and ethical hacking in legal labs.',u:'https://www.hackthebox.com'},
+ {id:'git',t:'Git and GitHub',cat:'Tools and cloud',lvl:'Beginner',h:4,ico:'git',d:'Save your work, branch and collaborate.'},
+ {id:'linux',t:'Linux command line',cat:'Tools and cloud',lvl:'Beginner',h:8,ico:'$_',d:'Move around and control a computer from the terminal.',u:'https://linuxjourney.com'},
+ {id:'docker',t:'Docker essentials',cat:'Tools and cloud',lvl:'Intermediate',h:6,ico:'Dk',d:'Package apps so they run the same everywhere.',u:'https://docs.docker.com/get-started/'},
+ {id:'sysdesign',t:'System design roadmap',cat:'Tools and cloud',lvl:'Advanced',h:20,ico:'SD',d:'Plan systems that scale to many users.',u:'https://roadmap.sh/system-design'}
+];
+const PROGRAMMES=[
+ {t:'Full-stack web developer',m:6,c:'#2DE2E6',d:'Go from zero to building and deploying complete web apps.',o:'Build a portfolio of 5 deployed projects.',cs:['html','css','js','git','react','node','sql']},
+ {t:'Python and data science',m:5,c:'#4ADE80',d:'Learn to clean, analyse and model data.',o:'Publish a data project on Kaggle.',cs:['python','sql','data','ml','git']},
+ {t:'Software engineer foundations',m:9,c:'#7C5CFF',d:'The deep computer science behind great engineers.',o:'Solve interview problems with confidence.',cs:['cs50','c','dsa','leet','os','net','sysdesign']},
+ {t:'Cybersecurity starter',m:5,c:'#F87171',d:'Understand systems, then learn to protect them.',o:'Complete beginner and intermediate lab rooms.',cs:['linux','net','python','thm','htb']},
+ {t:'Cloud and DevOps basics',m:4,c:'#C084FC',d:'Ship and run software reliably.',o:'Containerize and document an app.',cs:['linux','git','net','docker','sysdesign']}
+];
+const FAQ=[
+ ['Is Duncan\'s Tech School free?','Yes. The interactive lessons are free, and the library links to sites that are free to start. A few linked sites also sell paid plans, which are always optional.'],
+ ['Do I need any experience?','No. Start with HTML fundamentals or Python programming, both made for complete beginners.'],
+ ['How do the interactive lessons work?','Read a short lesson, edit the code in the browser, see the result instantly, then answer a quick quiz. Your progress is saved in your browser.'],
+ ['Which course should I take first?','If you want websites, start with HTML, then CSS, then JavaScript. If you prefer general programming, start with Python.'],
+ ['Do I get a certificate?','Yes. Complete every lesson in an interactive course to unlock a downloadable Certificate of Completion. It recognises completion of the course on Duncan’s Tech Schools; it is not an accredited academic qualification. Your projects and practical skills remain important evidence of what you can do.']
+];

@@ -1,0 +1,5 @@
+/* Self-hosted fonts used by the printed certificate (served from /fonts/). */
+@font-face{font-family:'Tinos';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/tinos-700.woff2') format('woff2')}
+@font-face{font-family:'Tinos';font-style:italic;font-weight:700;font-display:swap;src:url('/fonts/tinos-700-italic.woff2') format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/barlow-semi-condensed-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/barlow-semi-condensed-700.woff2') format('woff2')}

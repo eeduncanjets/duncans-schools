@@ -1,0 +1,15 @@
+DUNCAN'S TECH SCHOOLS — GOOGLE SIGN-IN SETUP
+
+The website package now includes the Google OAuth sign-in button and Supabase OAuth redirect flow. A code change alone cannot activate Google's provider: the site owner must connect the Google OAuth client in the Supabase dashboard.
+
+1. Open Google Cloud Console: https://console.cloud.google.com/apis/credentials
+2. Create/configure an OAuth consent screen and create an OAuth Client ID of type Web application.
+3. Authorized JavaScript origin: https://duncans-tech-schools.netlify.app
+4. Copy the exact callback URL displayed in Supabase -> Authentication -> Providers -> Google into Google's Authorized redirect URIs. It normally resembles https://YOUR-PROJECT-REF.supabase.co/auth/v1/callback.
+5. In Supabase -> Authentication -> Providers -> Google, enable Google and paste the Google Client ID and Client Secret. Save. Do not put the client secret in site files.
+6. In Supabase -> Authentication -> URL Configuration, set Site URL to https://duncans-tech-schools.netlify.app and add https://duncans-tech-schools.netlify.app/account as an allowed redirect URL.
+7. Deploy this folder to the existing Netlify site, then test Continue with Google in a private/incognito browser window.
+
+If testing a Netlify deploy preview or custom domain, add those exact origins/redirect destinations to the relevant allowlists as well.
+
+Included already: email sign-up/sign-in, password reset, Supabase progress sync, Study Pal learning helper, WhatsApp shortcut (+233 55 275 9148), course lessons, coding playground, challenges, dashboard, and self-issued course completion certificates. Certificates are not accredited qualifications.

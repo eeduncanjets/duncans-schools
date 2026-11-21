@@ -1,0 +1,102 @@
+{
+ "html": {
+  "t": "HTML fundamentals",
+  "n": 40
+ },
+ "css": {
+  "t": "CSS styling and layout",
+  "n": 40
+ },
+ "js": {
+  "t": "JavaScript essentials",
+  "n": 42
+ },
+ "react": {
+  "t": "React for beginners",
+  "n": 40
+ },
+ "node": {
+  "t": "Node.js and Express",
+  "n": 40
+ },
+ "ts": {
+  "t": "TypeScript handbook",
+  "n": 40
+ },
+ "python": {
+  "t": "Python programming",
+  "n": 41
+ },
+ "java": {
+  "t": "Java foundations",
+  "n": 40
+ },
+ "c": {
+  "t": "C programming",
+  "n": 40
+ },
+ "cpp": {
+  "t": "C++ from scratch",
+  "n": 40
+ },
+ "cs50": {
+  "t": "CS50: intro to computer science",
+  "n": 40
+ },
+ "dsa": {
+  "t": "Data structures and algorithms",
+  "n": 40
+ },
+ "leet": {
+  "t": "Problem solving practice",
+  "n": 40
+ },
+ "os": {
+  "t": "Operating systems",
+  "n": 40
+ },
+ "net": {
+  "t": "How the internet works",
+  "n": 40
+ },
+ "sql": {
+  "t": "SQL fundamentals",
+  "n": 40
+ },
+ "pg": {
+  "t": "PostgreSQL in practice",
+  "n": 40
+ },
+ "data": {
+  "t": "Data science with Python",
+  "n": 40
+ },
+ "ml": {
+  "t": "Machine learning crash course",
+  "n": 40
+ },
+ "thm": {
+  "t": "Cybersecurity basics",
+  "n": 40
+ },
+ "htb": {
+  "t": "Hands-on security labs",
+  "n": 40
+ },
+ "git": {
+  "t": "Git and GitHub",
+  "n": 40
+ },
+ "linux": {
+  "t": "Linux command line",
+  "n": 40
+ },
+ "docker": {
+  "t": "Docker essentials",
+  "n": 40
+ },
+ "sysdesign": {
+  "t": "System design roadmap",
+  "n": 40
+ }
+}

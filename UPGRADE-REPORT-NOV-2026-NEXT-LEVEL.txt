@@ -1,0 +1,32 @@
+DUNCAN'S TECH SCHOOLS — NEXT-LEVEL LEARNER EXPERIENCE RELEASE
+
+NEW FEATURES
+1. Project Lab: three starter templates, HTML/CSS/JavaScript editors, sandboxed live preview, browser-local autosave, reset/save controls, standalone HTML export and portfolio quality checklist.
+2. Interview Studio: role-specific technical and behavioural question sets, mixed/focused practice, two-minute timer, answer workspace, self-assessment rubric, local history, average score and JSON export.
+3. Learner XP: shared local experience points and seven levels from Starter to Trailblazer, with rewards for project and interview activities.
+4. Student dashboard now displays learner XP and links directly to Project Lab and Interview Studio.
+5. Homepage, primary navigation, footer, redirects, sitemap, manifest shortcuts and offline precache updated.
+6. Privacy disclosure updated for new browser-local data.
+
+PRESERVED
+- 1,000 interactive lesson pages.
+- 25 course pages.
+- Existing Career Studio, LC-3 Learning Centre, playground, challenges, practice tests, dashboard, certificates, authentication and other content.
+- No teacher dashboard and no administrator dashboard.
+
+VERIFICATION
+- `npm run check`: PASS.
+- Build generated 1,048 source pages and 1,045 sitemap URLs.
+- 1,000 lesson pages and 25 course pages verified.
+- 41 JavaScript files syntax-checked.
+- Local links/assets and new feature controls/routes verified.
+- Browser automation could not be run in this build environment because Chromium navigation was blocked by the environment. Perform the live browser acceptance tests after deployment.
+
+DATA NOTES
+- Project drafts, interview history and XP are stored in browser local storage; they do not automatically sync to Supabase.
+- Interview ratings are self-assessments, not AI grades.
+- Project preview is sandboxed in an iframe.
+- Supabase OAuth/cloud sync, Netlify Forms and the hosted AI helper still require provider-level live tests.
+
+DEPLOY
+Upload the CONTENTS of this folder to the existing Netlify site, keeping the publish directory as `.` and functions directory as `netlify/functions`. Then hard-refresh the website.

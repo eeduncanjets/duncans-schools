@@ -1,0 +1,35 @@
+DUNCAN'S TECH SCHOOLS — WEBSITE UPDATE
+
+Changes in this package
+- The current build generates 1,000 lesson pages across 25 courses; homepage counts and release notes now reflect the expanded catalogue.
+- Standardised the public brand name to Duncan's Tech Schools and aligned visible copy with British English usage.
+- Replaced the long top-level navigation with Learn and Resources dropdown groups.
+- Removed the duplicate LC-3 Centre navigation entry.
+- Merged the Technology Academy and study-planner/portfolio cards because they share /academy; the Academy page contains both tools.
+- Moved the long curated external resource directory to /resources, leaving interactive courses and tools more prominent on the homepage.
+- Added an honest founder credibility line based on the existing About page; no fabricated learner counts or testimonials were added.
+- Clarified that browser progress is device-local by default and that cross-device sync depends on configured cloud sync.
+- Added a meaningful static hero-code fallback for slow connections and disabled JavaScript.
+- Expanded the LC-3 guide to 40 lessons, the quiz to 40 questions, and debugging practice to 40 challenges.
+- Expanded the LC-3 coding practice section to 10 programming tasks.
+- Updated LC-3 progress counts and service-worker cache version.
+
+Validation performed
+- JavaScript syntax checked with Node.js for every file in /js.
+- Confirmed 40 unique LC-3 lesson article IDs (1–40).
+- Confirmed 40 quiz questions.
+- Confirmed 40 debugging challenge records.
+- Confirmed one LC-3 Centre link in the homepage navigation.
+- Confirmed the resource-library page and Netlify clean URL redirect are present.
+
+Not performed
+- No live Netlify deployment was made.
+- A full Lighthouse run and hands-on physical phone test were not completed in this environment. Please run Lighthouse against the deployed URL and check the menu, forms and code lab on an actual phone before announcing the release.
+
+
+Learner experience improvements:
+- Added a configurable focus timer and rolling seven-day study target to the learner dashboard.
+- Added JSON progress backup export and merge-based restore.
+- Added focus-session and weekly-goal data to optional signed-in progress sync.
+- Corrected the certificate FAQ to match the available course-completion certificate feature and clarify that it is not an accredited qualification.
+- No teacher or administrator dashboard added.

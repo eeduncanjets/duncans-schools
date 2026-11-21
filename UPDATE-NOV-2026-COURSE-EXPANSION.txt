@@ -1,0 +1,11 @@
+DUNCAN'S TECH SCHOOLS — COURSE EXPANSION
+
+This release expands all 25 interactive courses.
+- 40 structured lessons in each course (1,000 lessons total).
+- 40-question course assessment bank for every course (1,000+ questions total).
+- 40 test-checked debugging exercises per course (1,000 debugging exercises total).
+- Rebuilt static lesson pages, course outlines, sitemap and deployment assets.
+
+Practice tests draw a random 10-question set from each course's question pool. The debugging labs use the site's supported in-browser test runner (JavaScript, Python and SQL execution paths); where a native compiler is not part of the browser lab, exercises focus on transferable code logic and debugging skills.
+
+To deploy: publish the contents of this folder to Netlify, or drag the ZIP into your deployment workflow. Keep existing Netlify environment variables and Supabase OAuth settings unchanged.

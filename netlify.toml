@@ -1,16 +1,5 @@
+# Netlify Functions: the optional AI helper and the certificate signer.
+# The certificate signer needs an environment variable CERT_SECRET (Site settings > Environment variables).
 [build]
-  publish = "client"
+  publish = "."
   functions = "netlify/functions"
-
-[functions]
-  node_bundler = "esbuild"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

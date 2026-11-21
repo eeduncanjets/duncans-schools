@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate limiting | System Design | Duncan's Tech Schools</title>
+<meta name="description" content="Rate limiting caps how many requests a client can make in a period. It protects a service from overload and abuse, such as... Free interactive System Design lesson.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/lessons/sysdesign-8">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="Rate limiting | System Design | Duncan's Tech Schools"><meta property="og:description" content="Rate limiting caps how many requests a client can make in a period. It protects a service from overload and abuse, such as... Free interactive System Design lesson.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/lessons/sysdesign-8"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Rate limiting | System Design | Duncan's Tech Schools"><meta name="twitter:description" content="Rate limiting caps how many requests a client can make in a period. It protects a service from overload and abuse, such as... Free interactive System Design lesson."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Rate limiting","description":"Rate limiting caps how many requests a client can make in a period. It protects a service from overload and abuse, such as password guessing.","learningResourceType":"Lesson","educationalLevel":"Advanced","inLanguage":"en","isAccessibleForFree":true,"isPartOf":{"@type":"Course","name":"System design roadmap","url":"https://duncans-tech-schools.netlify.app/courses/sysdesign","provider":{"@type":"Organization","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duncans-tech-schools.netlify.app/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://duncans-tech-schools.netlify.app/#courses"},{"@type":"ListItem","position":3,"name":"System design roadmap","item":"https://duncans-tech-schools.netlify.app/courses/sysdesign"},{"@type":"ListItem","position":4,"name":"Rate limiting","item":"https://duncans-tech-schools.netlify.app/lessons/sysdesign-8"}]}]}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/learn.css">
+<script src="/js/theme.js"></script>
+</head>
+<body class="learn-page" data-course="sysdesign" data-lesson="7">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+
+<main class="learn" id="main">
+  <aside class="side">
+    <label for="courseSel">Course</label>
+    <select id="courseSel"></select>
+    <div class="bar"><i id="courseBar"></i></div>
+    <p class="count" id="courseCount"></p>
+    <ol id="lessonList"><li><a href="/lessons/sysdesign-1">1. Requirements first</a></li><li><a href="/lessons/sysdesign-2">2. Load balancers</a></li><li><a href="/lessons/sysdesign-3">3. Caching</a></li><li><a href="/lessons/sysdesign-4">4. Replication and sharding</a></li><li><a href="/lessons/sysdesign-5">5. The CAP theorem</a></li><li><a href="/lessons/sysdesign-6">6. Message queues</a></li><li><a href="/lessons/sysdesign-7">7. Content delivery networks</a></li><li><a href="/lessons/sysdesign-8" aria-current="page">8. Rate limiting</a></li><li><a href="/lessons/sysdesign-9">9. Vertical and horizontal scaling</a></li><li><a href="/lessons/sysdesign-10">10. Stateless servers</a></li><li><a href="/lessons/sysdesign-11">11. SQL or NoSQL</a></li><li><a href="/lessons/sysdesign-12">12. Idempotency</a></li><li><a href="/lessons/sysdesign-13">13. Single points of failure</a></li><li><a href="/lessons/sysdesign-14">14. Back-of-envelope estimates</a></li><li><a href="/lessons/sysdesign-15">15. Latency numbers</a></li><li><a href="/lessons/sysdesign-16">16. Monitoring and alerts</a></li><li><a href="/lessons/sysdesign-17">17. Pagination</a></li><li><a href="/lessons/sysdesign-18">18. Consistent hashing</a></li><li><a href="/lessons/sysdesign-19">19. Retries with backoff</a></li><li><a href="/lessons/sysdesign-20">20. Read-heavy systems</a></li><li><a href="/lessons/sysdesign-21">21. Eventual consistency</a></li><li><a href="/lessons/sysdesign-22">22. API gateways</a></li><li><a href="/lessons/sysdesign-23">23. Monolith or microservices</a></li><li><a href="/lessons/sysdesign-24">24. Circuit breakers</a></li><li><a href="/lessons/sysdesign-25">25. Hot keys</a></li><li><a href="/lessons/sysdesign-26">26. SLAs and SLOs</a></li><li><a href="/lessons/sysdesign-27">27. Leader election</a></li><li><a href="/lessons/sysdesign-28">28. Write-ahead logs</a></li><li><a href="/lessons/sysdesign-29">29. Backpressure</a></li><li><a href="/lessons/sysdesign-30">30. Sticky sessions</a></li><li><a href="/lessons/sysdesign-31">31. Blue-green deployments</a></li><li><a href="/lessons/sysdesign-32">32. Fan-out on write</a></li><li><a href="/lessons/sysdesign-33">33. Bloom filters</a></li><li><a href="/lessons/sysdesign-34">34. Cache invalidation</a></li><li><a href="/lessons/sysdesign-35">35. Publish and subscribe</a></li><li><a href="/lessons/sysdesign-36">36. Observability</a></li><li><a href="/lessons/sysdesign-37">37. Range partitioning</a></li><li><a href="/lessons/sysdesign-38">38. Graceful degradation</a></li><li><a href="/lessons/sysdesign-39">39. Canary releases</a></li><li><a href="/lessons/sysdesign-40">40. Serving users nearby</a></li></ol>
+  </aside>
+
+  <section class="lesson">
+    <h1 id="lTitle">Rate limiting</h1>
+    <div class="body" id="lBody"><p>Rate limiting caps how many requests a client can make in a period. It protects a service from overload and abuse, such as password guessing.</p></div>
+
+    <div class="work" id="work">
+      <div class="tabs" role="tablist"><button role="tab" data-t="html" aria-selected="true">HTML</button><button role="tab" data-t="css" aria-selected="false">CSS</button><button role="tab" data-t="js" aria-selected="false">JavaScript</button>
+        <span class="spacer"></span><button class="mini" id="reset">Reset</button><button class="mini run" id="run">Run</button></div>
+      <div class="split">
+        <div class="editors">
+          <textarea id="ed-html" spellcheck="false" aria-label="HTML code"></textarea>
+          <textarea id="ed-css" spellcheck="false" aria-label="CSS code" hidden></textarea>
+          <textarea id="ed-js" spellcheck="false" aria-label="JavaScript code" hidden></textarea>
+        </div>
+        <iframe id="preview" title="Live preview" sandbox="allow-scripts"></iframe>
+      </div>
+    </div>
+
+    <div class="work" id="work2" hidden>
+      <div class="tabs"><span id="langName"></span><span class="spacer"></span><button class="mini" id="reset2">Reset</button><button class="mini run" id="run2">Run (Ctrl+Enter)</button></div>
+      <textarea id="ed-code" class="single" spellcheck="false" aria-label="Code editor"></textarea>
+      <div class="out" id="out" aria-live="polite"><p class="rows">Press Run to see the result.</p></div>
+    </div>
+
+    <div class="sample" id="sampleBox" hidden><div class="tabs"><span>Example</span><span class="spacer"></span><button class="mini" id="copy">Copy</button></div><pre id="sample">100 requests per minute per user, then respond 429 Too Many Requests</pre></div>
+
+    <div class="quiz" id="quiz"><h3>Quick check</h3><p id="qText">Why rate limit an API?</p><div id="qOpts"><button type="button">To make responses larger</button><button type="button">To disable caching</button><button type="button">To protect it from overload and abuse</button></div><p id="qMsg" aria-live="polite"></p></div>
+    <div class="nav-btns"><button class="btn ghost" id="prev">Previous</button><button class="btn" id="next">Next lesson</button></div>
+  </section>
+</main>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+
+<script src="/js/data.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+<script src="/js/editor.js"></script>
+<script src="/js/runner.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="/js/learn.js"></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

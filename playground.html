@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code playground | Duncan's Tech Schools</title>
+<meta name="description" content="Run HTML, CSS, JavaScript, Python and SQL in your browser.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/playground">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="Code playground | Duncan's Tech Schools"><meta property="og:description" content="Run HTML, CSS, JavaScript, Python and SQL in your browser.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/playground"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Code playground | Duncan's Tech Schools"><meta name="twitter:description" content="Run HTML, CSS, JavaScript, Python and SQL in your browser."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Code playground | Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app/playground","description":"Run HTML, CSS, JavaScript, Python and SQL in your browser.","isPartOf":{"@type":"WebSite","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script src="/js/theme.js"></script>
+</head>
+<body class="sub-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+<main class="wrap" id="main">
+<h1>Code playground</h1>
+<p class="sub">Write and run code in your browser. Your work is saved automatically on this device. Press Ctrl+Enter to run.</p>
+<div class="modes" role="tablist"><button role="tab" data-m="web" aria-selected="true">Web</button><button role="tab" data-m="py" aria-selected="false">Python</button><button role="tab" data-m="sql" aria-selected="false">SQL</button></div>
+<section id="p-web" class="pg">
+  <div class="tabs"><button data-t="html" aria-selected="true">HTML</button><button data-t="css" aria-selected="false">CSS</button><button data-t="js" aria-selected="false">JavaScript</button></div>
+  <div class="split"><div class="editors"><textarea id="w-html" spellcheck="false" aria-label="HTML"></textarea><textarea id="w-css" spellcheck="false" aria-label="CSS" hidden></textarea><textarea id="w-js" spellcheck="false" aria-label="JavaScript" hidden></textarea></div><iframe id="w-prev" title="Preview" sandbox="allow-scripts"></iframe></div>
+</section>
+<section id="p-py" class="pg" hidden><textarea id="py-code" class="single" spellcheck="false" aria-label="Python code"></textarea><div class="bar-row"><button class="btn small" id="py-run">Run Python</button><span class="hint">The first run downloads the Python engine. input() is not supported.</span></div><div class="out" id="py-out"></div></section>
+<section id="p-sql" class="pg" hidden><textarea id="sql-code" class="single" spellcheck="false" aria-label="SQL code"></textarea><div class="bar-row"><button class="btn small" id="sql-run">Run SQL</button><label class="hint"><input type="checkbox" id="sql-db" checked> Load the sample school database (students, courses)</label></div><div class="out" id="sql-out"></div></section>
+</main>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+<script src="/js/data.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+<script src="/js/editor.js"></script>
+<script src="/js/runner.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="/js/playground.js"></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

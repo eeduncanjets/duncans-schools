@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topological sort | Data structures and algorithms | Duncan's Tech Schools</title>
+<meta name="description" content="A topological sort puts tasks in an order where each task comes after everything it depends on. It is used for build systems... Free interactive Data structures and algorithms lesson.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/lessons/dsa-34">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="Topological sort | Data structures and algorithms | Duncan's Tech Schools"><meta property="og:description" content="A topological sort puts tasks in an order where each task comes after everything it depends on. It is used for build systems... Free interactive Data structures and algorithms lesson.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/lessons/dsa-34"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Topological sort | Data structures and algorithms | Duncan's Tech Schools"><meta name="twitter:description" content="A topological sort puts tasks in an order where each task comes after everything it depends on. It is used for build systems... Free interactive Data structures and algorithms lesson."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Topological sort","description":"A topological sort puts tasks in an order where each task comes after everything it depends on. It is used for build systems and course prerequisites.","learningResourceType":"Lesson","educationalLevel":"Intermediate","inLanguage":"en","isAccessibleForFree":true,"isPartOf":{"@type":"Course","name":"Data structures and algorithms","url":"https://duncans-tech-schools.netlify.app/courses/dsa","provider":{"@type":"Organization","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://duncans-tech-schools.netlify.app/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://duncans-tech-schools.netlify.app/#courses"},{"@type":"ListItem","position":3,"name":"Data structures and algorithms","item":"https://duncans-tech-schools.netlify.app/courses/dsa"},{"@type":"ListItem","position":4,"name":"Topological sort","item":"https://duncans-tech-schools.netlify.app/lessons/dsa-34"}]}]}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/learn.css">
+<script src="/js/theme.js"></script>
+</head>
+<body class="learn-page" data-course="dsa" data-lesson="33">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+
+<main class="learn" id="main">
+  <aside class="side">
+    <label for="courseSel">Course</label>
+    <select id="courseSel"></select>
+    <div class="bar"><i id="courseBar"></i></div>
+    <p class="count" id="courseCount"></p>
+    <ol id="lessonList"><li><a href="/lessons/dsa-1">1. Big-O in plain words</a></li><li><a href="/lessons/dsa-2">2. Linear vs binary search</a></li><li><a href="/lessons/dsa-3">3. Stacks and queues</a></li><li><a href="/lessons/dsa-4">4. Sorting</a></li><li><a href="/lessons/dsa-5">5. Big-O in practice</a></li><li><a href="/lessons/dsa-6">6. Hash tables</a></li><li><a href="/lessons/dsa-7">7. Binary search</a></li><li><a href="/lessons/dsa-8">8. Queues and breadth-first search</a></li><li><a href="/lessons/dsa-9">9. Recursion and base cases</a></li><li><a href="/lessons/dsa-10">10. Linked lists</a></li><li><a href="/lessons/dsa-11">11. Merge sort</a></li><li><a href="/lessons/dsa-12">12. Binary search trees</a></li><li><a href="/lessons/dsa-13">13. Depth-first search</a></li><li><a href="/lessons/dsa-14">14. Stacks</a></li><li><a href="/lessons/dsa-15">15. Heaps and priority queues</a></li><li><a href="/lessons/dsa-16">16. Graph adjacency lists</a></li><li><a href="/lessons/dsa-17">17. Arrays and linked lists</a></li><li><a href="/lessons/dsa-18">18. Sets</a></li><li><a href="/lessons/dsa-19">19. Tries</a></li><li><a href="/lessons/dsa-20">20. Quicksort</a></li><li><a href="/lessons/dsa-21">21. Dynamic programming</a></li><li><a href="/lessons/dsa-22">22. Shortest paths</a></li><li><a href="/lessons/dsa-23">23. Space complexity</a></li><li><a href="/lessons/dsa-24">24. Balanced trees</a></li><li><a href="/lessons/dsa-25">25. Grids</a></li><li><a href="/lessons/dsa-26">26. Doubly linked lists</a></li><li><a href="/lessons/dsa-27">27. Stable sorting</a></li><li><a href="/lessons/dsa-28">28. Dynamic arrays</a></li><li><a href="/lessons/dsa-29">29. Hash collisions</a></li><li><a href="/lessons/dsa-30">30. Selection sort</a></li><li><a href="/lessons/dsa-31">31. Deques</a></li><li><a href="/lessons/dsa-32">32. Insertion sort</a></li><li><a href="/lessons/dsa-33">33. Union-find</a></li><li><a href="/lessons/dsa-34" aria-current="page">34. Topological sort</a></li><li><a href="/lessons/dsa-35">35. Lower bound</a></li><li><a href="/lessons/dsa-36">36. Recursion and the call stack</a></li><li><a href="/lessons/dsa-37">37. Bit tricks</a></li><li><a href="/lessons/dsa-38">38. Circular queues</a></li><li><a href="/lessons/dsa-39">39. Tree rotations</a></li><li><a href="/lessons/dsa-40">40. Dense and sparse graphs</a></li></ol>
+  </aside>
+
+  <section class="lesson">
+    <h1 id="lTitle">Topological sort</h1>
+    <div class="body" id="lBody"><p>A topological sort puts tasks in an order where each task comes after everything it depends on. It is used for build systems and course prerequisites.</p></div>
+
+    <div class="work" id="work">
+      <div class="tabs" role="tablist"><button role="tab" data-t="html" aria-selected="true">HTML</button><button role="tab" data-t="css" aria-selected="false">CSS</button><button role="tab" data-t="js" aria-selected="false">JavaScript</button>
+        <span class="spacer"></span><button class="mini" id="reset">Reset</button><button class="mini run" id="run">Run</button></div>
+      <div class="split">
+        <div class="editors">
+          <textarea id="ed-html" spellcheck="false" aria-label="HTML code"></textarea>
+          <textarea id="ed-css" spellcheck="false" aria-label="CSS code" hidden></textarea>
+          <textarea id="ed-js" spellcheck="false" aria-label="JavaScript code" hidden></textarea>
+        </div>
+        <iframe id="preview" title="Live preview" sandbox="allow-scripts"></iframe>
+      </div>
+    </div>
+
+    <div class="work" id="work2" hidden>
+      <div class="tabs"><span id="langName"></span><span class="spacer"></span><button class="mini" id="reset2">Reset</button><button class="mini run" id="run2">Run (Ctrl+Enter)</button></div>
+      <textarea id="ed-code" class="single" spellcheck="false" aria-label="Code editor"></textarea>
+      <div class="out" id="out" aria-live="polite"><p class="rows">Press Run to see the result.</p></div>
+    </div>
+
+    <div class="sample" id="sampleBox" hidden><div class="tabs"><span>Example</span><span class="spacer"></span><button class="mini" id="copy">Copy</button></div><pre id="sample">maths -&gt; statistics -&gt; machine learning</pre></div>
+
+    <div class="quiz" id="quiz"><h3>Quick check</h3><p id="qText">What does a topological sort order?</p><div id="qOpts"><button type="button">Numbers by size</button><button type="button">Tasks so each comes after the tasks it depends on</button><button type="button">Words alphabetically</button></div><p id="qMsg" aria-live="polite"></p></div>
+    <div class="nav-btns"><button class="btn ghost" id="prev">Previous</button><button class="btn" id="next">Next lesson</button></div>
+  </section>
+</main>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+
+<script src="/js/data.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+<script src="/js/editor.js"></script>
+<script src="/js/runner.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="/js/learn.js"></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

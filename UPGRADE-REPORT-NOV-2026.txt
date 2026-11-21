@@ -1,0 +1,37 @@
+DUNCAN'S TECH SCHOOLS — LEARNER EXPERIENCE UPGRADE
+Release: November 9, 2026
+Build: dts-bba3abc3b0
+
+WHAT WAS IMPROVED
+1. Added a learner focus timer with 15, 25, 40, 50 and 60-minute sessions.
+2. Added a rolling seven-day study-minute tracker and editable weekly goal (60–3,000 minutes).
+3. Added progress backup export to JSON and merge-based restore that preserves existing device progress.
+4. Added focus-session and weekly-goal data to optional signed-in progress sync.
+5. Updated privacy wording to describe the new local study data accurately.
+6. Corrected the certificate FAQ and clarified that completion certificates are not accredited academic qualifications.
+7. Updated documentation for the current 1,000-lesson, 25-course catalogue and the LC-3 learning centre.
+
+NOT ADDED
+- No teacher dashboard.
+- No administrator dashboard.
+
+BUILD / QUALITY CHECKS
+- `node build.js`: successful.
+- Generated pages: 1,045.
+- Sitemap URLs: 1,042.
+- Lesson pages: 1,000.
+- Course pages: 25.
+- JavaScript syntax checks: passed for all project JS files and Netlify functions.
+- Static assertions: passed for focus tool inclusion, service-worker asset precache, dashboard backup controls, lesson/course counts and certificate FAQ wording.
+- Internal-link scan: no missing local assets found; 8 clean routes resolve through the Netlify `_redirects` file to resources.html.
+
+DEPLOYMENT
+1. Extract the ZIP.
+2. Open the `duncans-tech-schools-deploy` folder.
+3. Deploy the CONTENTS of that folder to the existing Netlify site (or connect the folder to the existing Git repository).
+4. Keep Netlify publish directory as `.` and functions directory as `netlify/functions`.
+5. After deployment, open `/dashboard`, test the focus timer, save a weekly target, export a backup, then test restore using that backup.
+6. Hard-refresh once so the updated service worker and assets are loaded.
+
+IMPORTANT
+The build and static checks passed. Third-party services such as Supabase OAuth, cloud sync, Netlify Forms and the hosted AI function still require their live provider settings and real-account testing. This package does not claim those external services were independently verified.

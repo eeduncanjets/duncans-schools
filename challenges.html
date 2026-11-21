@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coding challenges with instant feedback | Duncan's Tech Schools</title>
+<meta name="description" content="Practice JavaScript, Python and SQL with coding challenges that check your answer instantly in the browser.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/challenges">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="Coding challenges with instant feedback | Duncan's Tech Schools"><meta property="og:description" content="Practice JavaScript, Python and SQL with coding challenges that check your answer instantly in the browser.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/challenges"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Coding challenges with instant feedback | Duncan's Tech Schools"><meta name="twitter:description" content="Practice JavaScript, Python and SQL with coding challenges that check your answer instantly in the browser."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Coding challenges with instant feedback | Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app/challenges","description":"Practice JavaScript, Python and SQL with coding challenges that check your answer instantly in the browser.","isPartOf":{"@type":"WebSite","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/pages.css">
+<script src="/js/theme.js"></script>
+</head>
+<body class="sub-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+<main class="wrap" id="main">
+<section class="challenge-hero"><p class="eyebrow">PRACTISE · DEBUG · BUILD</p><h1>Your Challenge Hub</h1><p class="sub">Choose from 1,210 coding, debugging and guided practice challenges across 20 technologies. Search, filter by level, and track your progress as you solve them.</p><div class="challenge-stats"><strong id="chCount">Loading your progress…</strong><span id="challengeResultsMeta" aria-live="polite"></span></div></section>
+<section class="challenge-controls" aria-label="Find a challenge"><label class="challenge-search-label" for="challengeSearch">Search challenges</label><input id="challengeSearch" type="search" placeholder="Try JavaScript, arrays, SQL joins, debugging…" autocomplete="off"><div class="challenge-filter-row"><label>Technology<select id="challengeTechnology"></select></label><label>Difficulty<select id="challengeLevel"></select></label></div><div class="challenge-kind-row" role="group" aria-label="Challenge type"><button class="btn small active" id="challengeAll" aria-pressed="true">All challenges</button><button class="btn ghost small" id="challengeDebug" aria-pressed="false">Debugging labs</button><button class="btn ghost small" id="challengeGuided" aria-pressed="false">Guided challenges</button><button class="btn ghost small" id="challengeClear">Clear filters</button></div></section>
+<div class="chal"><aside class="challenge-library"><div class="challenge-library-head"><h2>Challenge library</h2><p class="rows">Select a challenge to begin.</p></div><ul id="chList"></ul></aside><section class="ch-main"><div class="challenge-task-head"><p class="eyebrow">YOUR WORKSPACE</p><h2 id="chTitle"></h2><p class="lang" id="chLevel"></p><p class="sub" id="chDesc"></p></div><textarea id="chCode" spellcheck="false" aria-label="Your solution"></textarea><div class="bar-row"><button class="btn small" id="chRun">Run tests</button><button class="btn ghost small" id="chReset">Reset</button><button class="btn ghost small" id="chReveal" hidden>Show reference guidance</button><button class="btn ghost small" id="chComplete" hidden>Mark guided task complete</button><span class="hint" id="chHint">Ctrl+Enter also runs the tests.</span></div><div class="out" id="chOut" aria-live="polite"></div></section></div><noscript><p>This page needs JavaScript to run challenges.</p></noscript>
+</main>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+<script src="/js/runner.js"></script>
+<script src="/js/editor.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="/js/challenges.js"></script>
+<script src="/js/challenge-page.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

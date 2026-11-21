@@ -1,0 +1,7 @@
+.tl-tabs{display:flex;gap:.5rem;margin:1rem 0}.tl-tabs button{padding:.55rem 1.1rem;border-radius:999px;border:1px solid rgba(124,92,255,.5);background:rgba(124,92,255,.1);color:inherit;font:inherit;font-weight:700;cursor:pointer}.tl-tabs button[aria-selected=true]{background:#7C5CFF;color:#fff}
+.tl-task{font-weight:700;margin:.6rem 0}.tl-term{background:#0e0b1d;color:#e8e4ff;border-radius:14px;padding:1rem;min-height:260px;max-height:420px;overflow:auto;font:500 .95rem/1.55 "Fira Code",monospace}
+.tl-term div{white-space:pre-wrap}.tl-cmd{color:#fff}.tl-out{color:#b9b2e6}.tl-ok{color:#5ee69a}.tl-bad{color:#ff8a9b}.tl-hint{color:#ffb547}
+.tl-line{display:flex;gap:.5rem;align-items:center}.tl-line span{color:#5ee69a;white-space:nowrap}.tl-line input{flex:1;background:transparent;border:0;outline:0;color:#fff;font:inherit;min-width:0}
+#tlProg{margin-left:auto;opacity:.8;align-self:center}
+.rv-card{border:1px solid rgba(124,92,255,.35);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0;background:rgba(124,92,255,.06)}.rv-meta{opacity:.8;font-size:.9rem;margin:0}.rv-q{font-weight:700;margin:.5rem 0}
+.rv-opts{display:grid;gap:.5rem}.rv-opts button{text-align:left;padding:.65rem .9rem;border-radius:10px;border:1px solid rgba(124,92,255,.4);background:transparent;color:inherit;font:inherit;cursor:pointer}.rv-opts button.ok{background:rgba(60,200,120,.25);border-color:#3cc878}.rv-opts button.bad{background:rgba(255,90,110,.2);border-color:#ff5a6e}.rv-msg{min-height:1.2em;margin:.5rem 0 0}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My dashboard | Duncan's Tech Schools</title>
+<meta name="description" content="Track your lessons, streak, badges and certificates.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/dashboard">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="My dashboard | Duncan's Tech Schools"><meta property="og:description" content="Track your lessons, streak, badges and certificates.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/dashboard"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="My dashboard | Duncan's Tech Schools"><meta name="twitter:description" content="Track your lessons, streak, badges and certificates."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"My dashboard | Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app/dashboard","description":"Track your lessons, streak, badges and certificates.","isPartOf":{"@type":"WebSite","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/next-level.css">
+<script src="/js/theme.js"></script>
+<style>.lc3-dashboard-card{margin:1.5rem 0 2rem;padding:1.35rem 1.5rem;border:1px solid var(--line);border-radius:18px;background:radial-gradient(circle at 95% 0,rgba(45,226,230,.13),transparent 42%),var(--panel)}.lc3-dash-kicker{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--aqua);font-weight:800}.lc3-dashboard-card h2{margin:.3rem 0}.lc3-dashboard-card p{color:var(--muted);max-width:760px}.lc3-dash-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}</style><link rel="stylesheet" href="/css/cert-fonts.css"></head>
+<body class="sub-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+<main class="wrap" id="main">
+<h1>My dashboard</h1>
+<p class="sub">Your learning progress is saved on this device. Sign in to sync supported progress across your devices.</p>
+<section class="lc3-dashboard-card" aria-labelledby="lc3DashTitle"><div><span class="lc3-dash-kicker">Computer architecture pathway</span><h2 id="lc3DashTitle">LC-3 Learning Centre</h2><p>Continue with 40 guided lessons, practise assembly in the interactive lab, solve debugging challenges and test your knowledge.</p></div><div class="lc3-dash-actions"><a class="btn" href="/lc3-academy">Open Learning Centre</a><a class="btn ghost" href="/lc3">Open Lab</a><a class="btn ghost" href="/lc3-guide">Lessons</a><a class="btn ghost" href="/lc3-challenges">Debug Challenges</a><a class="btn ghost" href="/lc3-practice">Practice Tests</a></div></section>
+<section class="learner-tools" aria-labelledby="focusTitle">
+  <div class="focus-card">
+    <div class="focus-heading"><div><span class="focus-kicker">Build a consistent habit</span><h2 id="focusTitle">Focus session</h2><p class="hint">Choose a short study block. Your completed sessions count toward your weekly target.</p></div><div class="focus-clock" id="focusClock" role="timer" aria-live="off">25:00</div></div>
+    <div class="focus-controls"><label>Session length <select id="focusLength"><option value="15">15 minutes</option><option value="25" selected>25 minutes</option><option value="40">40 minutes</option><option value="50">50 minutes</option><option value="60">60 minutes</option></select></label><button class="btn small" id="focusStart" type="button">Start focus</button><button class="btn ghost small" id="focusPause" type="button" disabled>Pause</button><button class="btn ghost small" id="focusReset" type="button">Reset</button></div>
+    <p class="focus-status" id="focusStatus" aria-live="polite">Ready when you are. Pick one task and begin.</p>
+  </div>
+  <div class="goal-card"><span class="focus-kicker">Weekly study target</span><h2><span id="weekMinutes">0</span> <small>/ <span id="goalMinutes">300</span> min</small></h2><div class="goal-track" role="progressbar" aria-label="Weekly study target progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="goalProgress"><i id="goalFill"></i></div><label for="weeklyGoal">Weekly target (minutes)</label><div class="goal-edit"><input id="weeklyGoal" type="number" min="60" max="3000" step="30" value="300"><button class="btn ghost small" id="saveGoal" type="button">Save target</button></div><p class="hint" id="goalMessage">A realistic target you can repeat beats an ambitious target you abandon.</p></div>
+</section>
+<section class="backup-card" aria-labelledby="backupTitle"><div><span class="focus-kicker">Your data belongs to you</span><h2 id="backupTitle">Progress backup</h2><p class="hint">Export your lessons, tests, challenges, streak and study sessions as a backup file. You can restore it on another browser.</p></div><div class="backup-actions"><button class="btn ghost small" id="exportProgress" type="button">Download my backup</button><label class="btn ghost small import-label" for="importProgress">Restore backup</label><input id="importProgress" type="file" accept="application/json,.json" hidden></div><p class="hint" id="backupStatus" aria-live="polite"></p></section>
+<section class="nl-card reward-dashboard" aria-labelledby="rewardTitle"><div><span class="focus-kicker">Your learning journey</span><h2 id="rewardTitle">XP & achievement level</h2><p class="hint">Earn experience by completing interview practice and preparing portfolio-ready projects.</p></div><div class="reward-dashboard-row"><div><b id="dashXp">0 XP</b><span id="dashLevel">Starter level</span></div><div class="xp-track"><i id="dashXpBar"></i></div><a class="btn ghost small" href="/project-lab">Build a project</a><a class="btn ghost small" href="/interview-studio">Practise interviews</a></div></section>
+<section class="dash-top">
+  <div class="ring-card"><svg viewBox="0 0 140 140" width="160" height="160" role="img" aria-label="Overall progress"><circle cx="70" cy="70" r="54" fill="none" stroke="var(--line)" stroke-width="12"/><circle id="ring" cx="70" cy="70" r="54" fill="none" stroke="url(#rg)" stroke-width="12" stroke-linecap="round" stroke-dasharray="339.3" stroke-dashoffset="339.3" transform="rotate(-90 70 70)"/><defs><linearGradient id="rg"><stop offset="0" stop-color="#2DE2E6"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs><text id="ringTxt" x="70" y="78" text-anchor="middle" font-size="26" font-weight="800" fill="currentColor">0%</text></svg><p>Overall progress</p></div>
+  <div class="kpis" id="kpis"></div>
+</section>
+<h2>Courses</h2><div class="list" id="courseList"></div>
+<h2>Practice tests</h2><div class="list" id="testList"></div>
+<h2>Badges</h2><div class="badges" id="badges"></div>
+<h2>Certificates</h2>
+<p class="sub">Finish every lesson in a course to unlock a professionally designed, downloadable PDF Certificate of Completion from Duncan Tech Schools.</p>
+<label class="sel">Name on certificate <input id="certName" placeholder="Your full name"></label>
+<div class="list" id="certs"></div>
+<p><button class="btn ghost small" id="resetAll">Reset all progress</button></p>
+</main>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+<script src="/js/data.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="/js/runner.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/cert.js"></script><script src="/js/dashboard.js"></script>
+<script src="/js/focus.js" defer></script>
+<script src="/js/gamification.js" defer></script>
+<script src="/js/rewards-dashboard.js" defer></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

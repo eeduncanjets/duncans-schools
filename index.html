@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duncan's Tech Schools: learn programming and computer science</title>
+<meta name="description" content="Free interactive programming lessons, practical browser tools and guided computer science learning paths.">
+<!--seo-->
+<link rel="canonical" href="https://duncans-tech-schools.netlify.app/">
+<meta name="theme-color" content="#070B1F">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Duncan's Tech Schools">
+<meta property="og:title" content="Duncan's Tech Schools: learn programming and computer science"><meta property="og:description" content="Free interactive programming lessons, practical browser tools and guided computer science learning paths.">
+<meta property="og:url" content="https://duncans-tech-schools.netlify.app/"><meta property="og:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Duncan's Tech Schools: learn programming and computer science"><meta name="twitter:description" content="Free interactive programming lessons, practical browser tools and guided computer science learning paths."><meta name="twitter:image" content="https://duncans-tech-schools.netlify.app/images/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app","logo":"https://duncans-tech-schools.netlify.app/images/logo.svg","description":"Free interactive lessons and a curated library for learning programming and computer science.","founder":{"@type":"Person","name":"Duncan"}},{"@type":"WebSite","name":"Duncan's Tech Schools","url":"https://duncans-tech-schools.netlify.app"}]}</script>
+<!--/seo-->
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/home-premium.css">
+<script src="/js/theme.js"></script>
+<style>.lc3-home-links{display:block;margin-top:.65rem;font-size:.82rem;color:var(--aqua);font-weight:700}.nav-dropdown-menu a{white-space:nowrap}</style></head>
+<body data-three="1">
+<a class="skip" href="#top">Skip to content</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="34" height="34"><span>Duncan's Tech Schools</span></a>
+  <nav aria-label="Main"><button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <ul id="menu"><li><a href="/start">Start here</a></li><li><a href="/#courses">Courses</a></li><li><a href="/challenges">Challenges</a></li><li><a href="/practice">Practice</a></li><li><a href="/playground">Playground</a></li><li><a href="/cheatsheets">Cheat sheets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/dashboard">Dashboard</a></li><li><a href="/career-studio">Career Studio</a></li><li><a href="/project-lab">Project Lab</a></li><li><a href="/interview-studio">Interview Studio</a></li><li><a href="/innovation-academy">Innovation Academy</a></li>
+  <li><button class="search-btn" id="searchBtn" aria-label="Search the school">Search <kbd>Ctrl K</kbd></button></li>
+  <li><button class="theme-btn" id="themeBtn" aria-label="Switch between light and dark theme">&#9680;</button></li>
+  <li><a class="acct" id="accountLink" href="/account">Sign in</a></li>
+  <li><a class="btn small" href="/lessons/html-1">Start learning</a></li></ul></nav></header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="pill"><span class="dot"></span>New: Python and SQL that run in your browser</p>
+      <h1>Learn to build the software that runs the world.</h1>
+      <p class="lead">Take interactive lessons, follow a learning path, and practise with curated resources. Build practical skills through guided lessons, browser-based tools and projects you can add to your portfolio.</p>
+      <div class="cta-row">
+        <a class="btn" href="/lessons/html-1">Start a free lesson</a>
+        <a class="btn ghost" href="#courses">Explore courses</a>
+        <a class="btn ghost" id="continueBtn" href="/lessons/html-1" hidden>Continue</a>
+        <button class="btn ghost" id="quizBtn" type="button">Find my path</button>
+      </div>
+    </div>
+    <div class="terminal" aria-label="Animated code example">
+      <div class="term-bar"><i></i><i></i><i></i><span>learn.js</span></div>
+      <pre id="typed" aria-live="off"><span class="c">// Your first lesson</span>
+<span class="k">const</span> goal = <span class="s">"Build something useful"</span>;
+<span class="f">console</span>.log(goal);</pre>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="About the school"><p><strong>Built by a Computer Science student at the University of Cape Coast.</strong> Practical learning resources created by Duncan for curious, hands-on learners.</p><a href="/about">Meet the founder →</a></section>
+
+  <section class="stats" aria-label="School at a glance"><div><b id="s1" data-count="58">58</b><span>curated learning sites</span></div><div><b id="s2" data-count="25">25</b><span>courses</span></div><div><b id="s3" data-count="5">5</b><span>career programmes</span></div><div><b id="s4" data-count="1003">1003</b><span>interactive lessons</span></div></section>
+
+  <section class="section" id="tools">
+    <h2>Tools that make you faster</h2>
+    <p class="sub">Practice, look things up and track your growth. Press Ctrl+K anywhere to search the whole school.</p>
+    <div class="grid">
+      <a class="card" style="--c:#2DE2E6" href="/playground"><div class="ico">&gt;_</div><h3>Code playground</h3><p>Run HTML, CSS, JavaScript, Python and SQL right in the browser.</p></a>
+      <a class="card" style="--c:#FFB547" href="/cheatsheets"><div class="ico">{ }</div><h3>Cheat sheets</h3><p>Copy-ready snippets for seven languages and tools.</p></a>
+      <a class="card" style="--c:#4ADE80" href="/dashboard"><div class="ico">%</div><h3>Progress dashboard</h3><p>Streaks, badges and downloadable certificates.</p></a>
+      <a class="card" style="--c:#7C5CFF" href="/lessons/html-1"><div class="ico">59</div><h3>Interactive lessons</h3><p>HTML, CSS, JavaScript, Python, SQL and Git with live code.</p></a>
+      <a class="card" style="--c:#FF6B9A" href="/challenges"><div class="ico">&#10003;</div><h3>Coding challenges</h3><p>Write code and get instant pass or fail feedback.</p></a>
+      <a class="card" style="--c:#C084FC" href="/career-studio"><div class="ico">★</div><h3>Career Studio</h3><p>Build a personalised skill roadmap, practise with spaced-repetition flashcards, and turn ideas into portfolio-ready projects.</p></a>
+      <a class="card" style="--c:#FFB547" href="/project-lab"><div class="ico">&lt;/&gt;</div><h3>Project Lab</h3><p>Build real web projects with guided starters, live preview, autosave and one-click HTML export.</p></a>
+      <a class="card" style="--c:#4ADE80" href="/interview-studio"><div class="ico">Q&A</div><h3>Interview Studio</h3><p>Practise technical and behavioural interview questions, assess your answers and track your progress.</p></a>
+      <a class="card" style="--c:#52D9B5" href="/innovation-academy"><div class="ico">✦</div><h3>Innovation Academy</h3><p>Discover real problems, validate ideas with users, shape a venture canvas and plan a responsible prototype.</p></a>
+      <a class="card" style="--c:#2DE2E6" href="/lc3-academy"><div class="ico">LC3</div><h3>LC-3 Learning Centre</h3><p>Learn computer architecture with 40 guided lessons, an interactive assembly lab, 40 debugging challenges and practice tests.</p><span class="lc3-home-links">Includes: Interactive Lab · 40 Lessons · Debug Challenges · Practice Tests</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="paths">
+    <h2>Choose your path</h2>
+    <p class="sub">Each path is a short sequence of steps. Move the cursor over a card to tilt it.</p>
+    <div class="grid" id="pathGrid"><!--ssr--><article class="card reveal" style="--c:#2DE2E6"><div class="ico">&lt;/&gt;</div><h3>Web development</h3><p>Build and publish real websites.</p><ul><li>HTML and CSS on MDN</li><li>JavaScript on javascript.info</li><li>Projects on The Odin Project</li><li>React on react.dev</li></ul></article><article class="card reveal" style="--c:#FFB547"><div class="ico">py</div><h3>Python programming</h3><p>The friendliest first language.</p><ul><li>Basics on LearnPython.org</li><li>Practice on Exercism</li><li>Deeper tutorials on Real Python</li><li>Automate small tasks</li></ul></article><article class="card reveal" style="--c:#7C5CFF"><div class="ico">CS</div><h3>Computer science core</h3><p>Understand how computers really work.</p><ul><li>Watch CS50</li><li>Read Teach Yourself CS</li><li>Take MIT OpenCourseWare</li><li>Study data structures</li></ul></article><article class="card reveal" style="--c:#FF6B9A"><div class="ico">O(n)</div><h3>Algorithms and interviews</h3><p>Think clearly and solve problems fast.</p><ul><li>Easy problems on LeetCode</li><li>Contests on Codeforces</li><li>Timed tests on HackerRank</li><li>Review on GeeksforGeeks</li></ul></article><article class="card reveal" style="--c:#4ADE80"><div class="ico">SQL</div><h3>Databases and SQL</h3><p>Store, query and shape data.</p><ul><li>Lessons on SQLBolt</li><li>Practice on SQLZoo</li><li>Read the PostgreSQL docs</li><li>Design a small schema</li></ul></article><article class="card reveal" style="--c:#38BDF8"><div class="ico">ML</div><h3>Data science and AI</h3><p>Turn raw data into answers.</p><ul><li>Free courses on Kaggle</li><li>Python with pandas</li><li>Share notebooks</li><li>Join a competition</li></ul></article><article class="card reveal" style="--c:#F87171"><div class="ico">sec</div><h3>Cybersecurity</h3><p>Learn to defend systems safely.</p><ul><li>Guided rooms on TryHackMe</li><li>Labs on Hack The Box</li><li>Networking basics</li><li>Read about web attacks</li></ul></article><article class="card reveal" style="--c:#C084FC"><div class="ico">git</div><h3>Tools and careers</h3><p>Work like a professional.</p><ul><li>Learn Git and GitHub</li><li>Follow Roadmap.sh</li><li>Ask on Stack Overflow</li><li>Write on DEV Community</li></ul></article><!--/ssr--></div>
+  </section>
+
+  <section class="section" id="courses">
+    <h2>Courses</h2>
+    <p class="sub">Interactive courses run in your browser. The others open the best free resource for that subject.</p>
+    <div class="tools"><input id="cSearch" type="search" placeholder="Search courses: react, security, sql..." aria-label="Search courses"><div class="chips" id="cChips" role="group" aria-label="Filter by subject"></div>
+    <label class="sel">Level <select id="cLevel"><option>All</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label></div>
+    <p class="count" id="cCount" aria-live="polite"></p>
+    <div class="grid" id="courseGrid"><!--ssr--><a class="card" style="--c:#2DE2E6" href="/courses/html"><div class="ico">&lt;/&gt;</div><h3>HTML fundamentals</h3><p>Structure pages with headings, links, lists and forms.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>6 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#2DE2E6" href="/courses/css"><div class="ico">{ }</div><h3>CSS styling and layout</h3><p>Colors, spacing, the box model and Flexbox.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>8 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#2DE2E6" href="/courses/js"><div class="ico">JS</div><h3>JavaScript essentials</h3><p>Variables, functions, events and arrays.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>14 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#2DE2E6" href="/courses/react"><div class="ico">Re</div><h3>React for beginners</h3><p>Build interfaces from components.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>16 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#2DE2E6" href="/courses/node"><div class="ico">Nd</div><h3>Node.js and Express</h3><p>Write servers and APIs in JavaScript.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>14 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#2DE2E6" href="/courses/ts"><div class="ico">TS</div><h3>TypeScript handbook</h3><p>Add types to JavaScript and catch bugs early.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>8 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#FFB547" href="/courses/python"><div class="ico">py</div><h3>Python programming</h3><p>Variables, conditions, loops and functions.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>12 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#FFB547" href="/courses/java"><div class="ico">Jv</div><h3>Java foundations</h3><p>Object-oriented programming with Java.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>20 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#FFB547" href="/courses/c"><div class="ico">C</div><h3>C programming</h3><p>Pointers, memory and how code meets hardware.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>12 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#FFB547" href="/courses/cpp"><div class="ico">C++</div><h3>C++ from scratch</h3><p>A thorough, modern C++ tutorial.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>20 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#7C5CFF" href="/courses/cs50"><div class="ico">50</div><h3>CS50: intro to computer science</h3><p>Harvard's free course on how computers think.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>60 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#7C5CFF" href="/courses/dsa"><div class="ico">DS</div><h3>Data structures and algorithms</h3><p>Arrays, trees, graphs, sorting and searching.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>30 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#7C5CFF" href="/courses/leet"><div class="ico">O(n)</div><h3>Problem solving practice</h3><p>Sharpen your thinking with real interview problems.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>25 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#7C5CFF" href="/courses/os"><div class="ico">OS</div><h3>Operating systems</h3><p>Processes, memory and files, explained in three easy pieces.</p><div class="meta"><span class="lv Advanced">Advanced</span><span>30 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#7C5CFF" href="/courses/net"><div class="ico">IP</div><h3>How the internet works</h3><p>DNS, HTTP, TLS and networks in plain language.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>5 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#4ADE80" href="/courses/sql"><div class="ico">SQL</div><h3>SQL fundamentals</h3><p>Query and filter data with interactive lessons.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>8 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#4ADE80" href="/courses/pg"><div class="ico">Pg</div><h3>PostgreSQL in practice</h3><p>Tables, joins and indexes in a real database.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>10 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#4ADE80" href="/courses/data"><div class="ico">DS</div><h3>Data science with Python</h3><p>Pandas, visualization and real datasets.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>20 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#4ADE80" href="/courses/ml"><div class="ico">ML</div><h3>Machine learning crash course</h3><p>Models, training and evaluation, from Google.</p><div class="meta"><span class="lv Advanced">Advanced</span><span>15 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#F87171" href="/courses/thm"><div class="ico">sec</div><h3>Cybersecurity basics</h3><p>Guided, safe rooms for first-time learners.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>20 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#F87171" href="/courses/htb"><div class="ico">HTB</div><h3>Hands-on security labs</h3><p>Practice defense and ethical hacking in legal labs.</p><div class="meta"><span class="lv Advanced">Advanced</span><span>30 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#C084FC" href="/courses/git"><div class="ico">git</div><h3>Git and GitHub</h3><p>Save your work, branch and collaborate.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>4 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#C084FC" href="/courses/linux"><div class="ico">$_</div><h3>Linux command line</h3><p>Move around and control a computer from the terminal.</p><div class="meta"><span class="lv Beginner">Beginner</span><span>8 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#C084FC" href="/courses/docker"><div class="ico">Dk</div><h3>Docker essentials</h3><p>Package apps so they run the same everywhere.</p><div class="meta"><span class="lv Intermediate">Intermediate</span><span>6 hours</span><span>Interactive</span></div></a><a class="card" style="--c:#C084FC" href="/courses/sysdesign"><div class="ico">SD</div><h3>System design roadmap</h3><p>Plan systems that scale to many users.</p><div class="meta"><span class="lv Advanced">Advanced</span><span>20 hours</span><span>Interactive</span></div></a><!--/ssr--></div>
+  </section>
+
+  <section class="section" id="programmes">
+    <h2>Career programmes</h2>
+    <p class="sub">Each programme is a planned sequence of courses with a clear outcome.</p>
+    <div class="prog-grid" id="progGrid"><!--ssr--><article class="prog reveal" style="--c:#2DE2E6"><div class="prog-top"><h3>Full-stack web developer</h3><span class="months">6 months</span></div><p>Go from zero to building and deploying complete web apps.</p><ol><li><a href="/courses/html">HTML fundamentals</a></li><li><a href="/courses/css">CSS styling and layout</a></li><li><a href="/courses/js">JavaScript essentials</a></li><li><a href="/courses/git">Git and GitHub</a></li><li><a href="/courses/react">React for beginners</a></li><li><a href="/courses/node">Node.js and Express</a></li><li><a href="/courses/sql">SQL fundamentals</a></li></ol><p class="outcome"><b>Outcome:</b> Build a portfolio of 5 deployed projects.</p><p class="hrs">7 courses, about 70 hours</p></article><article class="prog reveal" style="--c:#4ADE80"><div class="prog-top"><h3>Python and data science</h3><span class="months">5 months</span></div><p>Learn to clean, analyse and model data.</p><ol><li><a href="/courses/python">Python programming</a></li><li><a href="/courses/sql">SQL fundamentals</a></li><li><a href="/courses/data">Data science with Python</a></li><li><a href="/courses/ml">Machine learning crash course</a></li><li><a href="/courses/git">Git and GitHub</a></li></ol><p class="outcome"><b>Outcome:</b> Publish a data project on Kaggle.</p><p class="hrs">5 courses, about 59 hours</p></article><article class="prog reveal" style="--c:#7C5CFF"><div class="prog-top"><h3>Software engineer foundations</h3><span class="months">9 months</span></div><p>The deep computer science behind great engineers.</p><ol><li><a href="/courses/cs50">CS50: intro to computer science</a></li><li><a href="/courses/c">C programming</a></li><li><a href="/courses/dsa">Data structures and algorithms</a></li><li><a href="/courses/leet">Problem solving practice</a></li><li><a href="/courses/os">Operating systems</a></li><li><a href="/courses/net">How the internet works</a></li><li><a href="/courses/sysdesign">System design roadmap</a></li></ol><p class="outcome"><b>Outcome:</b> Solve interview problems with confidence.</p><p class="hrs">7 courses, about 182 hours</p></article><article class="prog reveal" style="--c:#F87171"><div class="prog-top"><h3>Cybersecurity starter</h3><span class="months">5 months</span></div><p>Understand systems, then learn to protect them.</p><ol><li><a href="/courses/linux">Linux command line</a></li><li><a href="/courses/net">How the internet works</a></li><li><a href="/courses/python">Python programming</a></li><li><a href="/courses/thm">Cybersecurity basics</a></li><li><a href="/courses/htb">Hands-on security labs</a></li></ol><p class="outcome"><b>Outcome:</b> Complete beginner and intermediate lab rooms.</p><p class="hrs">5 courses, about 75 hours</p></article><article class="prog reveal" style="--c:#C084FC"><div class="prog-top"><h3>Cloud and DevOps basics</h3><span class="months">4 months</span></div><p>Ship and run software reliably.</p><ol><li><a href="/courses/linux">Linux command line</a></li><li><a href="/courses/git">Git and GitHub</a></li><li><a href="/courses/net">How the internet works</a></li><li><a href="/courses/docker">Docker essentials</a></li><li><a href="/courses/sysdesign">System design roadmap</a></li></ol><p class="outcome"><b>Outcome:</b> Containerize and document an app.</p><p class="hrs">5 courses, about 43 hours</p></article><!--/ssr--></div>
+  </section>
+
+  <section class="section" id="resource-library-link"><h2>Go deeper with curated resources</h2><p class="sub">Our interactive lessons come first. When you are ready to explore further, search the curated directory of 58 learning sites.</p><p><a class="btn ghost" href="/resources">Explore the resource library</a></p></section>
+
+  <section class="section" id="roadmap">
+    <h2>Your first 6 months</h2>
+    <p class="sub">A simple order that works for most beginners.</p>
+    <ol class="timeline" id="timeline"><!--ssr--><li class="reveal"><b>Month 1</b><p>Learn HTML, CSS and basic JavaScript. Build a personal page.</p></li><li class="reveal"><b>Month 2</b><p>Study JavaScript deeply. Make a to-do app and a weather app.</p></li><li class="reveal"><b>Month 3</b><p>Learn Git and GitHub. Publish your projects online.</p></li><li class="reveal"><b>Month 4</b><p>Pick Python or React. Solve easy problems on LeetCode weekly.</p></li><li class="reveal"><b>Month 5</b><p>Learn SQL and build an app with a database behind it.</p></li><li class="reveal"><b>Month 6</b><p>Build one bigger project, write about it, and start applying.</p></li><!--/ssr--></ol>
+  </section>
+
+  <section class="section" id="meet">
+    <div class="meet">
+      <picture><source srcset="/images/duncan-portrait.webp" type="image/webp"><img src="/images/duncan-portrait.jpg" alt="Duncan, founder of Duncan's Tech Schools, smiling with arms crossed in front of tall green plants" width="800" height="1067" loading="lazy" decoding="async"></picture>
+      <div>
+        <h2>Meet your instructor</h2>
+        <p>Hi, I'm Duncan. I'm a Computer Science student at the University of Cape Coast in Takoradi, Ghana, and I build with Python, JavaScript, Node.js, React and SQL.</p>
+        <p>I started this school to gather the best free resources on the web and turn them into short, practical lessons you can run right in your browser.</p>
+        <div class="cta-row"><a class="btn" href="/about">Read my story</a><a class="btn ghost" href="/contact">Get in touch</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog">
+    <h2>From the blog</h2>
+    <p class="sub">Practical guides for people learning to code.</p>
+    <div class="grid" id="blogGrid"><!--ssr--><a class="card" style="--c:#2DE2E6" href="/blog/learn-programming-in-6-months"><span class="tag">4 min read</span><h3>How to learn programming in 6 months: a realistic plan</h3><p>A month-by-month plan that takes you from zero to building real projects, using free resources.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/html-css-javascript-explained"><span class="tag">3 min read</span><h3>HTML, CSS and JavaScript: what each one does</h3><p>A plain-language explanation of the three core web technologies, with examples you can try.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/python-or-javascript-first"><span class="tag">3 min read</span><h3>Python or JavaScript first? How to choose</h3><p>Both are great first languages. Here is how to pick based on what you want to build.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/debugging-for-beginners"><span class="tag">4 min read</span><h3>Debugging for beginners: a 6-step routine</h3><p>A calm, repeatable way to find and fix bugs in your code, plus the most common mistakes beginners make.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/how-to-prepare-for-coding-tests"><span class="tag">4 min read</span><h3>How to prepare for coding tests and interviews</h3><p>A simple plan for exams and interviews: what to practice, how often, and how to think out loud.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/learn-react-after-javascript"><span class="tag">3 min read</span><h3>Should you learn React before JavaScript?</h3><p>Why a few weeks of JavaScript first makes React much easier, and exactly which skills to have before you start.</p></a><a class="card" style="--c:#2DE2E6" href="/blog/security-habits-for-beginner-developers"><span class="tag">4 min read</span><h3>Seven security habits every beginner developer needs</h3><p>Simple habits that protect your users, your accounts and your projects from the most common attacks.</p></a><!--/ssr--></div>
+    <p style="margin-top:1.4rem"><a class="btn ghost small" href="/blog/">All articles</a></p>
+  </section>
+
+  <section class="section" id="faq"><h2>Questions</h2><div class="faq" id="faqList"><!--ssr--><details><summary>Is Duncan's Tech School free?</summary><p>Yes. The interactive lessons are free, and the library links to sites that are free to start. A few linked sites also sell paid plans, which are always optional.</p></details><details><summary>Do I need any experience?</summary><p>No. Start with HTML fundamentals or Python programming, both made for complete beginners.</p></details><details><summary>How do the interactive lessons work?</summary><p>Read a short lesson, edit the code in the browser, see the result instantly, then answer a quick quiz. Your progress is saved in your browser.</p></details><details><summary>Which course should I take first?</summary><p>If you want websites, start with HTML, then CSS, then JavaScript. If you prefer general programming, start with Python.</p></details><details><summary>Do I get a certificate?</summary><p>Yes. Complete every lesson in an interactive course to unlock a downloadable Certificate of Completion. It recognises completion of the course on Duncan’s Tech Schools; it is not an accredited academic qualification. Your projects and practical skills remain important evidence of what you can do.</p></details><!--/ssr--></div></section>
+
+  <section class="section join" id="join">
+    <h2>Get a weekly learning digest</h2>
+    <p class="sub">One short email a week with a lesson, a tool and a challenge.</p>
+    <form class="nl" id="nl" name="newsletter" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><p class="form-msg" id="newsletter-msg" aria-live="polite"></p>
+    <p class="nl-msg" id="nlMsg" aria-live="polite"></p>
+    <a class="btn ghost" href="/lessons/html-1">Or start a free lesson now</a>
+  </section>
+</main>
+
+<dialog id="quizDlg" class="dlg" aria-label="Find your learning path"><div id="qStep"></div><button type="button" class="btn ghost small" data-close>Close</button></dialog>
+<footer id="siteFooter"><div class="f-grid"><div><b>Duncan's Tech Schools</b><p>Free interactive lessons and a hand-picked library of the best places to learn programming and computer science.</p></div>
+<div><b>Learn</b><a href="/start">Start here</a><a href="/terminal">Command Lab</a><a href="/review">Review mistakes</a><a href="/certificates">Certificates</a><a href="/verify">Verify a certificate</a><a href="/#courses">Courses</a><a href="/#programmes">Programmes</a><a href="/challenges">Challenges</a><a href="/practice">Practice tests</a><a href="/playground">Playground</a><a href="/cheatsheets">Cheat sheets</a></div>
+<div><b>Explore</b><a href="/#library">Resource library</a><a href="/blog/">Blog</a><a href="/dashboard">Dashboard</a><a href="/career-studio">Career Studio</a><a href="/project-lab">Project Lab</a><a href="/interview-studio">Interview Studio</a><a href="/innovation-academy">Innovation Academy</a></div>
+<div><b>School</b><a href="/about">About Duncan</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/account">Sign in</a></div></div>
+<div class="f-copy"><span>&copy; 2026 Duncan's Tech Schools</span><a href="#top" onclick="scrollTo({top:0})">Back to top</a></div></footer>
+
+<script src="/js/data.js"></script>
+<script src="/js/scene3d.js"></script>
+<script src="/js/lessons.js"></script>
+<script src="/js/lessons-extra.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/palette.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/home.js"></script>
+<script src="/js/onboard.js"></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/assistant.js" defer></script>
+</body>
+</html>

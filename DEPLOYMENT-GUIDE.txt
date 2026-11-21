@@ -1,0 +1,51 @@
+DUNCAN'S TECH SCHOOLS — DEPLOYMENT GUIDE
+========================================
+
+Your existing public address:
+https://duncans-tech-schools.netlify.app
+
+This release keeps the same Netlify site address when you deploy it to the SAME site.
+
+QUICK UPDATE (STATIC WEBSITE)
+1. Extract this ZIP file.
+2. Open the extracted folder named duncans-tech-schools-deploy.
+3. Check that index.html is directly inside that folder.
+4. Sign in to Netlify and open the existing site for duncans-tech-schools.netlify.app.
+5. Open Deploys.
+6. Drag the duncans-tech-schools-deploy folder into the manual deploy drop area.
+7. Wait until the deploy succeeds, then open the site and hard-refresh with Ctrl+F5.
+
+WHAT IS INCLUDED
+- Updated Duncan's Tech Schools branding across the generated pages.
+- 59 lesson pages and 25 course pages.
+- Practice tests, coding challenges, playground, dashboard, blog and built-in study helper.
+- Responsive styles, icons, offline/PWA support and SEO metadata.
+- Supabase schema and optional account setup instructions.
+- Netlify Function source for the optional real AI assistant.
+
+IMPORTANT FEATURE NOTES
+- The built-in study helper works without an AI API key and searches the site's learning content.
+- The real AI assistant requires a Netlify Functions deployment. Manual drag-and-drop is for static files and does not reliably deploy Functions. To enable real AI, connect this folder/repository to GitHub or use the Netlify CLI, then set ANTHROPIC_API_KEY in Netlify environment variables. The key must stay in Netlify and must never be placed in browser JavaScript.
+- Sign-in/sign-up remain off until you create a Supabase project, run supabase/schema.sql, configure the Supabase Site URL/redirect URL, and enter your Project URL and anon public key in js/config.js. The anon key is intended for browser use; never place a service-role key in the website.
+- Netlify Forms need form detection enabled. Submit a test contact/newsletter form after deployment and check the Forms section.
+- If the old site still appears, hard-refresh with Ctrl+F5 or clear the site's cached data. This site uses an offline service worker.
+
+OPTIONAL ACCOUNTS (SUPABASE)
+1. Create a project at https://supabase.com.
+2. Open SQL Editor and run supabase/schema.sql.
+3. Under Authentication > URL Configuration, set Site URL to https://duncans-tech-schools.netlify.app and add https://duncans-tech-schools.netlify.app/account as a redirect URL.
+4. Copy the Project URL and anon public key from Project Settings > API into js/config.js.
+5. Redeploy the folder to the same Netlify site.
+
+REAL AI ASSISTANT (OPTIONAL)
+1. Deploy with GitHub integration or the Netlify CLI, not manual drag-and-drop alone.
+2. Confirm netlify.toml uses publish = "." and functions = "netlify/functions".
+3. In Netlify environment variables, set ANTHROPIC_API_KEY. Optional: set ANTHROPIC_MODEL.
+4. Redeploy and test the Ask button. API usage may incur charges with the AI provider.
+
+If anything goes wrong, redeploy the previous successful deployment from Netlify's Deploys page.
+
+NOVEMBER 2026 ADDITIONS
+- /academy: Technology Academy course tracks, local study planner and portfolio Markdown exporter.
+- /lc3: browser-based LC-3 assembly editor, assembler, step/run debugger, registers, memory viewer and console.
+Upload the complete site folder (not just index.html) to Netlify. No build command is required for these static pages. Test both routes after publishing.
