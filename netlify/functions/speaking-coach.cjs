@@ -62,10 +62,65 @@ function errorCodeFor(status, bodyText) {
   return "ai_service_error";
 }
 
+// Temporary diagnostic page: open .../speaking-coach?debug=1 in a browser.
+async function runDebug(apiKey) {
+  const out = { primaryModel: MODEL, backupModels: FALLBACK_MODELS };
+  try {
+    const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200", {
+      headers: { "x-goog-api-key": apiKey },
+    });
+    out.listStatus = r.status;
+    const t = await r.text();
+    try {
+      const j = JSON.parse(t);
+      out.modelsYourKeyCanUse = (j.models || [])
+        .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
+        .map((m) => m.name.replace("models/", ""));
+      if (j.error) out.listError = j.error;
+    } catch (e) {
+      out.listBody = t.slice(0, 500);
+    }
+  } catch (e) {
+    out.listFailed = String(e && e.message);
+  }
+
+  out.tests = [];
+  for (const model of [MODEL, ...FALLBACK_MODELS]) {
+    const test = { model };
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: "Say hello in three words." }] }],
+          generationConfig: configFor(model),
+        }),
+      });
+      test.status = r.status;
+      const t = await r.text();
+      try {
+        const j = JSON.parse(t);
+        if (j.error) test.googleError = j.error;
+        else test.reply = (((j.candidates || [])[0] || {}).content || {}).parts;
+      } catch (e) {
+        test.body = t.slice(0, 500);
+      }
+    } catch (e) {
+      test.failed = String(e && e.message);
+    }
+    out.tests.push(test);
+  }
+  return { statusCode: 200, headers, body: JSON.stringify(out, null, 2) };
+}
+
 exports.handler = async (event) => {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (event.httpMethod === "GET" && event.queryStringParameters && event.queryStringParameters.debug === "1") {
+    if (!apiKey) return send(200, { problem: "GEMINI_API_KEY is not visible to the function. Check its name and that Functions is ticked in its scopes, then redeploy." });
+    return runDebug(apiKey);
+  }
   if (event.httpMethod !== "POST") return send(405, { error: "method_not_allowed" });
 
-  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     console.error("GEMINI_API_KEY is missing. Add it in Netlify > Environment variables (scope: Functions).");
     return send(500, { error: "not_configured" });
