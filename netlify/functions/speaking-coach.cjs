@@ -1,9 +1,12 @@
-// netlify/functions/speaking-coach.js
+// netlify/functions/speaking-coach.cjs
 // AI speaking mentor + voice coach powered by Google Gemini (free tier).
 // Needs the Netlify environment variable GEMINI_API_KEY (scope: Functions).
 // Optional: GEMINI_MODEL (defaults to gemini-3.8-flash).
+// If the main model is busy, rate-limited or retired, a backup model is tried automatically.
 
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+const FALLBACK_MODELS = ["gemini-2.5-flash-lite"].filter((m) => m !== MODEL);
+const TOTAL_MS = 9500; // Netlify functions time out at about 10 seconds by default
 
 const headers = { "Content-Type": "application/json" };
 const send = (statusCode, body) => ({ statusCode, headers, body: JSON.stringify(body) });
@@ -42,6 +45,14 @@ function buildContents(messages) {
   return contents;
 }
 
+function configFor(model) {
+  // Thinking tokens count toward maxOutputTokens, so keep thinking low and the cap generous.
+  const cfg = { maxOutputTokens: 1500 };
+  if (model.includes("2.5")) cfg.thinkingConfig = { thinkingBudget: 0 };
+  else if (model.startsWith("gemini-3")) cfg.thinkingConfig = { thinkingLevel: "low" };
+  return cfg;
+}
+
 function errorCodeFor(status, bodyText) {
   const t = (bodyText || "").toLowerCase();
   if (status === 401 || status === 403 || (status === 400 && t.includes("api key"))) return "ai_key_rejected";
@@ -70,49 +81,60 @@ exports.handler = async (event) => {
   const contents = buildContents(Array.isArray(data.messages) ? data.messages : []);
   if (!contents.length) return send(400, { error: "bad_request" });
 
-  // Thinking tokens count toward maxOutputTokens, so keep thinking low and the cap generous.
-  const generationConfig = { maxOutputTokens: 1500 };
-  if (MODEL.includes("2.5")) generationConfig.thinkingConfig = { thinkingBudget: 0 };
-  else if (MODEL.startsWith("gemini-3")) generationConfig.thinkingConfig = { thinkingLevel: "low" };
+  const systemInstruction = { parts: [{ text: buildSystemPrompt(data) }] };
+  const models = [MODEL, ...FALLBACK_MODELS];
+  const startedAt = Date.now();
+  let lastCode = "ai_service_error";
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 9000);
+  for (let i = 0; i < models.length; i++) {
+    const model = models[i];
+    const remaining = TOTAL_MS - (Date.now() - startedAt);
+    if (remaining < 1500) break;
+    const attemptMs = i < models.length - 1 ? Math.min(6000, remaining) : remaining;
 
-  try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: buildSystemPrompt(data) }] },
-          contents,
-          generationConfig,
-        }),
-        signal: controller.signal,
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), attemptMs);
+
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+          body: JSON.stringify({ systemInstruction, contents, generationConfig: configFor(model) }),
+          signal: controller.signal,
+        }
+      );
+
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error(`Gemini error (${model}):`, response.status, errText.slice(0, 600));
+        lastCode = errorCodeFor(response.status, errText);
+        if (lastCode === "ai_key_rejected") break; // another model will not fix a bad key
+        continue; // busy, rate-limited or unavailable: try the backup model
       }
-    );
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error("Gemini error:", response.status, errText);
-      const code = errorCodeFor(response.status, errText);
-      return send(code === "ai_rate_limited" ? 429 : 502, { error: code });
+      const result = await response.json();
+      const parts =
+        result.candidates && result.candidates[0] && result.candidates[0].content
+          ? result.candidates[0].content.parts || []
+          : [];
+      const text = parts.map((p) => p.text || "").join("").trim();
+
+      if (!text) {
+        console.error(`Gemini returned no text (${model}):`, JSON.stringify(result).slice(0, 500));
+        lastCode = "ai_service_error";
+        continue;
+      }
+      return send(200, { reply: text });
+    } catch (err) {
+      console.error(`Function error (${model}):`, err && err.name, err && err.message);
+      lastCode = err && err.name === "AbortError" ? "ai_timeout" : "ai_network_error";
+    } finally {
+      clearTimeout(timer);
     }
-
-    const result = await response.json();
-    const parts =
-      result.candidates && result.candidates[0] && result.candidates[0].content
-        ? result.candidates[0].content.parts || []
-        : [];
-    const text = parts.map((p) => p.text || "").join("").trim();
-
-    if (!text) console.error("Gemini returned no text:", JSON.stringify(result).slice(0, 500));
-    return send(200, { reply: text || "Let us try one small exercise. Tell me about your day in three sentences." });
-  } catch (err) {
-    console.error("Function error:", err && err.name, err && err.message);
-    return send(504, { error: err && err.name === "AbortError" ? "ai_timeout" : "ai_network_error" });
-  } finally {
-    clearTimeout(timer);
   }
+
+  const status = lastCode === "ai_rate_limited" ? 429 : lastCode === "ai_timeout" ? 504 : 502;
+  return send(status, { error: lastCode });
 };
