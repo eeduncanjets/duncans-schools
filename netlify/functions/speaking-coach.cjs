@@ -1,9 +1,9 @@
 // netlify/functions/speaking-coach.js
 // AI speaking mentor + voice coach powered by Google Gemini (free tier).
 // Needs the Netlify environment variable GEMINI_API_KEY (scope: Functions).
-// Optional: GEMINI_MODEL (defaults to gemini-2.5-flash).
+// Optional: GEMINI_MODEL (defaults to gemini-3.8-flash).
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
 
 const headers = { "Content-Type": "application/json" };
 const send = (statusCode, body) => ({ statusCode, headers, body: JSON.stringify(body) });
@@ -70,8 +70,10 @@ exports.handler = async (event) => {
   const contents = buildContents(Array.isArray(data.messages) ? data.messages : []);
   if (!contents.length) return send(400, { error: "bad_request" });
 
-  const generationConfig = { maxOutputTokens: 700, temperature: 0.7 };
-  if (MODEL.includes("2.5-flash")) generationConfig.thinkingConfig = { thinkingBudget: 0 };
+  // Thinking tokens count toward maxOutputTokens, so keep thinking low and the cap generous.
+  const generationConfig = { maxOutputTokens: 1500 };
+  if (MODEL.includes("2.5")) generationConfig.thinkingConfig = { thinkingBudget: 0 };
+  else if (MODEL.startsWith("gemini-3")) generationConfig.thinkingConfig = { thinkingLevel: "low" };
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 9000);
