@@ -1,11 +1,11 @@
 // netlify/functions/speaking-coach.cjs
 // AI speaking mentor + voice coach powered by Google Gemini (free tier).
 // Needs the Netlify environment variable GEMINI_API_KEY (scope: Functions).
-// Optional: GEMINI_MODEL (defaults to gemini-3.8-flash).
+// Optional: GEMINI_MODEL (defaults to gemini-3.5-flash-lite).
 // If the main model is busy, rate-limited or retired, a backup model is tried automatically.
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
-const FALLBACK_MODELS = ["gemini-2.5-flash-lite"].filter((m) => m !== MODEL);
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+const FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.5-flash"].filter((m) => m !== MODEL);
 const TOTAL_MS = 9500; // Netlify functions time out at about 10 seconds by default
 
 const headers = { "Content-Type": "application/json" };
@@ -49,7 +49,7 @@ function configFor(model) {
   // Thinking tokens count toward maxOutputTokens, so keep thinking low and the cap generous.
   const cfg = { maxOutputTokens: 1500 };
   if (model.includes("2.5")) cfg.thinkingConfig = { thinkingBudget: 0 };
-  else if (model.startsWith("gemini-3")) cfg.thinkingConfig = { thinkingLevel: "low" };
+  else if (model.startsWith("gemini-3") && !model.includes("lite")) cfg.thinkingConfig = { thinkingLevel: "low" };
   return cfg;
 }
 
@@ -145,7 +145,7 @@ exports.handler = async (event) => {
     const model = models[i];
     const remaining = TOTAL_MS - (Date.now() - startedAt);
     if (remaining < 1500) break;
-    const attemptMs = i < models.length - 1 ? Math.min(6000, remaining) : remaining;
+    const attemptMs = i < models.length - 1 ? Math.min(4000, remaining) : remaining;
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), attemptMs);
